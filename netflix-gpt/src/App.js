@@ -6,7 +6,10 @@ import store from "./utils/appStore";
 function App() {
   return (
     <Provider store={store}>
+      <div >
       <Body />
+      </div>
+     
     </Provider>
   );
 }

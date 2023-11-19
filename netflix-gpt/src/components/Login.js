@@ -9,11 +9,10 @@ import {
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { addUser } from "../utils/userSlice";
+import { BG_IMG, USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const email = useRef(null);
   const password = useRef(null);
@@ -27,7 +26,6 @@ const Login = () => {
   const handleButtonClick = () => {
     let message = validate(email.current.value, password.current.value);
     setError(message);
-    console.log(message);
 
     if (!message) {
       if (isSignInForm) {
@@ -42,7 +40,6 @@ const Login = () => {
             const user = userCredential.user;
             const {uid,email,displayName, photoURL}  = user
             dispatch(addUser({ uid : uid, displayName : displayName, email: email, photoURL: photoURL }));
-            navigate("/browse");
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -62,13 +59,12 @@ const Login = () => {
 
             updateProfile(user, {
               displayName: name.current.value,
-              photoURL: "https://cdn-icons-png.flaticon.com/128/3135/3135715.png",
+              photoURL: USER_AVATAR,
             })
               .then(() => {
                 // Profile updated!
                 const {uid,email,displayName, photoURL}  = user
                 dispatch(addUser({ uid : uid, displayName : displayName, email: email, photoURL: photoURL }));
-                navigate("/browse");
               })
               .catch((error) => {
                 // An error occurred
@@ -94,7 +90,7 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/77d35039-751f-4c3e-9c8d-1240c1ca6188/cf244808-d722-428f-80a9-052acdf158ec/IN-en-20231106-popsignuptwoweeks-perspective_alpha_website_small.jpg"
+          src={BG_IMG}
           alt="background-img"
         />
       </div>
