@@ -14,7 +14,7 @@ const appRouter = createBrowserRouter([
 },
 ])
   return (
-    <div className='no-scrollbar' >
+    <div >
         <RouterProvider
         router={appRouter}/>
     </div>
