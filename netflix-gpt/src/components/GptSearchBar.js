@@ -41,7 +41,6 @@ function GptSearchBar() {
     // Since searchMovieTMDB is asyncronous so it will take some time. It will not give the results immidiatly instead it will give us promise objects
     const promiseArray = gptMovies.map( movie => searchMovieTMDB(movie))
     const tmdbResults = await Promise.all(promiseArray)
-    console.log("Res :", tmdbResults)
     dispatch(addGptMovieResult(tmdbResults))
 
   };
