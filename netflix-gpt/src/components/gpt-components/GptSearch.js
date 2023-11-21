@@ -1,7 +1,7 @@
 import React from 'react'
 import GptSearchBar from './GptSearchBar'
 import GptMovieSuggestions from './GptMovieSuggestions'
-import { BG_IMG } from '../utils/constants'
+import { BG_IMG } from '../../utils/constants'
 function GptSearch() {
   return (
     <><div className="fixed -z-10">
