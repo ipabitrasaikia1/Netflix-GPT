@@ -4,16 +4,20 @@ import GptMovieSuggestions from './GptMovieSuggestions'
 import { BG_IMG } from '../utils/constants'
 function GptSearch() {
   return (
-    <div>
-        <div className="fixed -z-10">
-        <img
-          src={BG_IMG}
-          alt="background-img"
-        />
-      </div>
+    <><div className="fixed -z-10">
+    <img 
+    className='h-screen md:h-auto object-cover'
+      src={BG_IMG}
+      alt="background-img"
+    />
+   </div>
+   <div >
         <GptSearchBar/>
         <GptMovieSuggestions/>
     </div>
+
+    </>
+    
   )
 }
 
