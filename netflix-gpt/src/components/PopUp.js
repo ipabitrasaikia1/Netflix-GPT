@@ -15,7 +15,7 @@ const PopUp = ({ openPopUp, closePopUp }) => {
     <div
       id="ModelContainer"
       onClick={handlelosePopUp}
-      className="z-50 fixed inset-0 bg-black flex justify-center items-center bg-opacity-20 backdrop-blur-sm"
+      className="z-30 fixed inset-0 bg-black flex justify-center items-center bg-opacity-20 backdrop-blur-sm"
     >
       <div className="p-2 bg-white w-10/12 md:w-1/2 lg:1/3 shadow-inner border-e-emerald-600 rounded-lg py-5">
         <div className="w-full p-3 justify-center items-center">
@@ -29,12 +29,10 @@ const PopUp = ({ openPopUp, closePopUp }) => {
           <iframe
             className="w-full aspect-video "
             src={
-              "https://www.youtube.com/embed/" +
-              popupVideo.key +
-              "?&autoplay=1&mute=1"
+              "https://www.youtube.com/embed/" + popupVideo.key + "?&autoplay=1"
             }
             title="YouTube video player"
-            frameBorder="0"
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
           ></iframe>
