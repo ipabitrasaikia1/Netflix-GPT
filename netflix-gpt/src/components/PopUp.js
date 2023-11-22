@@ -36,13 +36,16 @@ const PopUp = ({ openPopUp, closePopUp }) => {
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
           ></iframe>
           <button className="mt-4 p-1 font-semibold bg-yellow-800 text-white rounded-lg">
-           Language : {popupVideoData.original_language}
+            Language : {popupVideoData.original_language}
           </button>
 
           <div className="mt-9 italic text-left text-white bg-black p-4 rounded-lg">
-          <button className="-mt-9 -ml-8 absolute p-1 font-semibold bg-yellow-800 text-white rounded-l-md">Overview</button>
+            <button className="-mt-9 -ml-8 absolute p-1 font-semibold bg-yellow-800 text-white rounded-l-md">
+              Overview
+            </button>
             {popupVideoData.overview}
           </div>
         </div>

@@ -3,7 +3,7 @@ import lang from "../../utils/languageConstants";
 import { useSelector, useDispatch } from "react-redux";
 import openai from "../../utils/openai";
 import { API_OPTIONS } from "../../utils/constants";
-import { addGptMovieResult, addMovieNames } from "../../utils/gptSlice";
+import { addGptMovieResult, addMovieNames, toggleSearchLoading } from "../../utils/gptSlice";
 function GptSearchBar() {
   const dispatch = useDispatch()
   const searchText = useRef(null);
@@ -15,11 +15,11 @@ function GptSearchBar() {
       API_OPTIONS
     );
     const json = await data.json();
-
     return json.results;
   };
 
   const handleGptSearch = async () => {
+    dispatch(toggleSearchLoading())
     // Make openAI API call to get result of movies
     const gptQuery =
       "Act as a Movie recommendation system and suggest some movies for the query " +
@@ -42,6 +42,7 @@ function GptSearchBar() {
     const promiseArray = gptMovies.map( movie => searchMovieTMDB(movie))
     const tmdbResults = await Promise.all(promiseArray)
     dispatch(addGptMovieResult(tmdbResults))
+    dispatch(toggleSearchLoading())
 
   };
 
