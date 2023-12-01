@@ -8,3 +8,6 @@ netflix like app with various features.
 - Implemented OpenAI GPT API for personalized movie recommendations based on natural language input
 
 - Developed a feature-rich movie detail popup with trailer player, enhancing user engagement
+
+# Deployed Link : 
+ - https://fantastic-gnome-620187.netlify.app/
